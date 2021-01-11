@@ -30,9 +30,14 @@ export default class Todo {
 
   get Template() {
     return `
-     <input class="form-check-input" onclick="app.todoController.toggleTodoStatus(${this.id})" type="checkbox" value="not checked" id="flexCheckDefault">
-     <li>${this.description}</li><i class="fa fa-trash text-danger" onclick="app.todoController.delete(${this.id})" aria-hidden="true">
-     </i>
+  <div class="row">
+    <div class="col flex-row">
+      <input class="form-check-input" onclick="app.todoController.toggleTodoStatus('${this.id}')" type="checkbox"
+        ${this.completed ? "checked" : ""} value="" id="${this.id}">
+      <li> ${this.description} </li>
+      <i class="fa fa-trash text-danger" onclick="app.todoController.removeTodo('${this.id}')" aria-hidden="true"></i>
+    </div>
+  </div>
     
     `
   }

@@ -9,7 +9,6 @@ class ClockService {
 
   getTime() {
     ProxyState.clock = new Clock
-    console.log(ProxyState.clock)
   }
 }
 

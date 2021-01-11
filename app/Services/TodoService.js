@@ -31,13 +31,13 @@ class TodoService {
     } else {
       todo.completed = true
     }
-
+    console.log(todo)
     let res = await todoApi.put("/" + todoId, todo);
     //TODO how do you trigger this change
     let temp = ProxyState.todos
     let indextoRemove = temp.findIndex(t => t.id == todo.id)
     temp.splice(indextoRemove, 1, new Todo(res.data))
-
+    console.log(ProxyState.todos)
   }
 
   async removeTodo(todoId) {
